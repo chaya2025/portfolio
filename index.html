@@ -632,7 +632,7 @@ svg .grid{stroke:#1A2220;stroke-width:1}
     sched.forEach(function(s){
       var t=s[0].split(':'), at=+t[0]*60+ +t[1], runs=s[2].indexOf(n.d)>-1, st;
       if(!runs) st='<span class="st">Not today</span>';
-      else if(at<=mins) st='<span class="st done">Done</span>';
+      else if(at<=mins) st='<span class="st done">Departed</span>';
       else if(!nextSet){ st='<span class="st next">Next</span>'; nextSet=true; }
       else st='<span class="st">On time</span>';
       html+='<tr><td class="t">'+s[0]+'</td><td class="n">'+s[1]+'</td><td class="d">'+s[3]+'</td><td>'+st+'</td></tr>';
