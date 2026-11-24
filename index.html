@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Chaya Reichman, AI Full Stack Engineer. AI products and agent systems, from understanding the need to production.">
+<meta property="og:title" content="Chaya Reichman">
+<meta property="og:description" content="I find technology solutions to real problems.">
+<meta property="og:image" content="https://chaya2025.github.io/portfolio/assets/byg-hero.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101214'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='700' fill='%23F1EFEA' text-anchor='middle'%3ECR%3C/text%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<title>Chaya Reichman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: a builder's catalogue. Opens on the person and a live departures board of what runs on her schedule; then featured work in each project's own colours; then the full index of everything built. One committed light look with dark bands. */
+:root{
+  --paper:#F1EFEA; --sheet:#FAF9F6; --ink:#101214; --muted:#5E625F; --line:#D7D3CA;
+  --cobalt:#2F4FC4; --cobalt-soft:#DDE3F7; --signal:#E2553A;
+  --board:#0D0F12; --board-2:#161A1F; --board-ink:#ECE9E1; --board-dim:#7B828A; --go:#7CC4A0; --wait:#E9B44C;
+  --pine:#173A33; --pine-ink:#E7EFEA; --mint:#8CC7B4; --ochre:#B7782E; --cream:#F5E8CF; --vermilion:#C8553D; --stone:#E4DFD5;
+  --display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+img,video{max-width:100%;display:block}
+.wrap{max-width:1300px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:700px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+.label{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--paper)}
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.mark{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1.05rem;text-decoration:none;letter-spacing:-.01em}
+.mark i{width:22px;height:22px;border-radius:6px;background:var(--ink);display:grid;place-items:center;color:var(--paper);font-style:normal;font-family:var(--mono);font-size:.7rem}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--cobalt)}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding-block:64px 48px}
+.hello{display:inline-flex;align-items:center;gap:10px}
+.hello b{width:8px;height:8px;border-radius:50%;background:var(--go);box-shadow:0 0 0 4px color-mix(in srgb,var(--go) 25%,transparent);animation:pulse 2.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px transparent}}
+.hero h1{font-family:var(--display);font-weight:780;font-size:clamp(3.2rem,9vw,7.6rem);line-height:.86;letter-spacing:-.045em;margin:20px 0 28px}
+.hero h1 span{display:block}
+.hero h1 span:last-child{color:var(--cobalt);font-weight:300;font-style:italic;letter-spacing:-.03em}
+.role{font-family:var(--display);font-weight:600;font-size:clamp(1.3rem,2.3vw,1.8rem);line-height:1.2;margin:0 0 14px;max-width:24em;text-wrap:balance}
+.lede{font-size:1.08rem;max-width:34em;color:var(--muted);margin:0 0 30px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 20px;border:1px solid var(--ink);border-radius:999px;transition:background .2s,color .2s,border-color .2s}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn:hover{border-color:var(--cobalt);color:var(--cobalt)}
+.btn.solid:hover{background:var(--cobalt);color:#fff}
+@media (max-width:960px){.hero{grid-template-columns:1fr;gap:40px;padding-block:44px 36px}}
+
+/* departures board */
+.board{background:var(--board);color:var(--board-ink);border-radius:14px;padding:20px 20px 14px;box-shadow:0 40px 80px -40px rgba(13,15,18,.7),inset 0 0 0 1px #20252b;transform:rotate(.6deg)}
+.board-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:14px;border-bottom:1px dashed #2A3036}
+.board-head h2{margin:0;font-family:var(--mono);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--wait)}
+.clock{font-family:var(--mono);font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.clock small{display:block;font-size:.58rem;font-weight:400;letter-spacing:.16em;color:var(--board-dim);text-align:right}
+.board table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.8rem;font-variant-numeric:tabular-nums}
+.board th{font-weight:400;font-size:.6rem;letter-spacing:.16em;color:var(--board-dim);text-align:left;padding:12px 6px 6px}
+.board td{padding:9px 6px;border-bottom:1px solid #1C2127;white-space:nowrap}
+.board td.t{color:var(--wait);font-weight:700}
+.board td.n{white-space:normal;color:var(--board-ink)}
+.board td.d{color:var(--board-dim);font-size:.7rem}
+.st{display:inline-block;font-size:.62rem;letter-spacing:.12em;padding:3px 7px;border-radius:4px;background:#1E242A;color:var(--board-dim)}
+.st.next{background:var(--wait);color:#1A1406;animation:blink 1.6s steps(2) infinite}
+.st.done{background:#173126;color:var(--go)}
+@keyframes blink{50%{opacity:.55}}
+.board-foot{display:flex;justify-content:space-between;gap:8px;padding-top:12px;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--board-dim);text-transform:uppercase}
+@media (max-width:480px){.board{transform:none;padding:16px 12px 10px}.board td.d,.board th.d{display:none}}
+
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid var(--ink);background:var(--ink);color:var(--paper)}
+.marquee .track{display:flex;width:max-content;animation:slide 60s linear infinite}
+.marquee span{font-family:var(--display);font-weight:500;font-size:1.25rem;padding:14px 0;white-space:nowrap}
+.marquee span::after{content:"✦";margin:0 22px;color:var(--cobalt);font-size:.8rem;vertical-align:middle}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--line)}
+.stat{padding:30px 18px 26px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,4vw,3.4rem);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stat:first-child b{color:var(--cobalt)}
+.stat span{display:block;margin-top:8px;font-size:.86rem;color:var(--muted)}
+@media (max-width:860px){.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:20px 14px;border-bottom:1px solid var(--line)}.stat:nth-child(odd){border-left:0;padding-left:0}.stat:last-child{border-bottom:0}}
+
+/* section heads */
+.sec-head{display:grid;grid-template-columns:240px 1fr;gap:32px;align-items:end;padding-block:100px 44px}
+.sec-head h2{font-family:var(--display);font-weight:700;font-size:clamp(2.1rem,4.6vw,3.8rem);line-height:.98;letter-spacing:-.035em;margin:0;text-wrap:balance}
+.sec-head h2 em{font-style:italic;font-weight:300;color:var(--cobalt)}
+@media (max-width:720px){.sec-head{grid-template-columns:1fr;gap:12px;padding-block:64px 28px}}
+
+/* project bands */
+.band{padding-block:72px}
+.band.pine{background:var(--pine);color:var(--pine-ink)}
+.band.pine .label{color:#9DB8AF}
+.band.cream{background:var(--cream)}
+.band.stone{background:var(--stone)}
+.band.night{background:var(--board);color:#E3E8E5}
+.band.night .label{color:#8E9A96}
+.proj-top{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.proj-top h3{font-family:var(--display);font-weight:780;font-size:clamp(2.6rem,6.4vw,5rem);line-height:.92;letter-spacing:-.04em;margin:8px 0 0}
+.open{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:12px 18px;border:1px solid currentColor;border-radius:999px;transition:background .2s,color .2s}
+.open:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.pine .open:hover{background:#F3D9AE;border-color:#F3D9AE;color:var(--pine)}
+.proj-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:start;margin-top:48px}
+.proj-grid p{margin:0 0 14px;max-width:36em}
+ul.facts{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+ul.facts li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:.95rem}
+ul.facts li::before{content:"";width:8px;height:8px;margin-top:.55em;border:1.5px solid currentColor;transform:rotate(45deg);opacity:.7}
+@media (max-width:900px){.proj-grid{grid-template-columns:1fr;gap:28px}}
+.titleblock{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-top:24px;background:var(--sheet);color:var(--ink)}
+.titleblock div{padding:10px 12px;border-left:1px solid var(--line);min-width:0}
+.titleblock div:first-child{border-left:0}
+.titleblock .label{display:block;font-size:.58rem;margin-bottom:4px;color:var(--muted)}
+.titleblock b{font-family:var(--mono);font-weight:500;font-size:.78rem;overflow-wrap:anywhere}
+.titleblock b.live{color:#2E7A62}
+.pine .titleblock,.night .titleblock{background:transparent;color:inherit;border-color:#3B5F56}
+.pine .titleblock div,.night .titleblock div{border-color:#3B5F56}
+.pine .titleblock .label,.night .titleblock .label{color:#9DB8AF}
+.pine .titleblock b.live,.night .titleblock b.live{color:var(--mint)}
+@media (max-width:480px){.titleblock{grid-template-columns:1fr 1fr}.titleblock div:nth-child(3){border-left:0}.titleblock div:nth-child(-n+2){border-bottom:1px solid #3B5F5655}}
+
+/* frames */
+.frame{margin:0;background:#0F1513;border-radius:10px;overflow:hidden;box-shadow:0 30px 60px -28px rgba(10,20,18,.55),0 0 0 1px rgba(0,0,0,.08);transition:transform .35s ease}
+.frame:hover{transform:translateY(-4px)}
+.frame .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:#1C2421}
+.frame .bar i{width:9px;height:9px;border-radius:50%;background:#3D4945}
+.frame .bar span{margin-left:12px;font-family:var(--mono);font-size:.66rem;color:#8E9A96;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.frame img,.frame video{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.light-frame{background:#fff}
+.light-frame .bar{background:#ECE7DD}
+.light-frame .bar i{background:#CFC7B8}
+.light-frame .bar span{color:#7A776F}
+figcaption.cap{margin-top:10px;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.shots figure{margin:0}
+@media (max-width:820px){.shots{grid-template-columns:1fr}}
+
+/* drawings */
+.drawing{background:#0E1412;color:#DCE2DD;position:relative;padding:22px;border-radius:4px;margin:0}
+.drawing svg{display:block;width:100%;height:auto}
+.drawing .corner{position:absolute;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:#7F8B86}
+.drawing .tl{top:10px;left:14px}.drawing .tr{top:10px;right:14px}
+.drawing::after{content:"";position:absolute;inset:8px;border:1px solid #2A3532;pointer-events:none}
+svg .n{fill:#141C19;stroke:#56636A;stroke-width:1}
+svg .n-hi{fill:#1F4A41;stroke:#8CC7B4;stroke-width:1.2}
+svg .n-warm{fill:#2A2216;stroke:#D59A4F;stroke-width:1.2}
+svg .n-red{fill:#311B17;stroke:#E07A62;stroke-width:1.2}
+svg .n-plum{fill:#2A1820;stroke:#C47A96;stroke-width:1.2}
+svg .n-sky{fill:#15202F;stroke:#8EA6F0;stroke-width:1.2}
+svg .w{stroke:#3F4B48;stroke-width:1;fill:none}
+svg .w-hi{stroke:#8CC7B4;stroke-width:1.2;fill:none}
+svg .t{font-family:var(--mono);font-size:10px;letter-spacing:.06em;fill:#DCE2DD}
+svg .t-s{font-family:var(--mono);font-size:8.5px;letter-spacing:.04em;fill:#8D9994}
+svg .c-hi{fill:#A8D6C8} svg .c-warm{fill:#E2B77E} svg .c-red{fill:#F0A08C} svg .c-plum{fill:#DDA2B8} svg .c-sky{fill:#B7C6F5}
+svg .dot{fill:#A8D6C8} svg .dot-w{fill:#E2B77E} svg .dot-r{fill:#F0A08C}
+svg .grid{stroke:#1A2220;stroke-width:1}
+
+/* index */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;transition:all .2s}
+.chip sup{font-size:.62rem;margin-left:4px;color:var(--muted)}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip[aria-pressed="true"] sup{color:#A9ADB0}
+.index{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.item{position:relative;background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px;transition:transform .25s,border-color .25s,box-shadow .25s;animation:rise .45s both}
+.item:hover{transform:translateY(-3px);border-color:var(--k);box-shadow:0 18px 30px -22px var(--k)}
+.item .kind{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--k)}
+.item .kind i{font-style:normal;color:var(--muted)}
+.item h4{margin:0;font-family:var(--mono);font-weight:700;font-size:.95rem;letter-spacing:-.01em;overflow-wrap:anywhere}
+.item p{margin:0;font-size:.88rem;color:var(--muted);line-height:1.5}
+.item::before{content:"";position:absolute;left:18px;top:0;width:28px;height:3px;border-radius:0 0 3px 3px;background:var(--k)}
+.item[data-k="app"]{--k:#C8553D}.item[data-k="skill"]{--k:#2F4FC4}.item[data-k="agent"]{--k:#7A3E54}.item[data-k="automation"]{--k:#2E7A62}.item[data-k="hook"]{--k:#B7782E}.item[data-k="script"]{--k:#4F5A63}
+@keyframes rise{from{opacity:.3;transform:translateY(8px)}}
+.index-note{margin-top:22px;font-size:.86rem;color:var(--muted)}
+
+/* duo */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:64px;padding-top:48px;border-top:1px solid #2A3036}
+.duo h4{font-family:var(--display);font-weight:700;font-size:1.8rem;letter-spacing:-.02em;margin:8px 0 10px}
+.duo p{margin:0 0 12px;color:#B7C2BE;max-width:34em}
+@media (max-width:900px){.duo{grid-template-columns:1fr}}
+
+/* process */
+.process{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink)}
+.step{padding:22px 22px 30px 0;border-right:1px solid var(--line);margin-right:22px}
+.step:last-child{border-right:0;margin-right:0}
+.step .num{font-family:var(--display);font-weight:300;font-size:4rem;line-height:1;letter-spacing:-.04em;color:var(--cobalt)}
+.step h4{font-family:var(--display);font-weight:700;font-size:1.4rem;margin:12px 0 8px}
+.step p{margin:0;font-size:.94rem;color:var(--muted)}
+@media (max-width:900px){.process{grid-template-columns:1fr 1fr}.step{border-right:0;margin-right:0;padding-right:16px;border-bottom:1px solid var(--line)}}
+@media (max-width:480px){.process{grid-template-columns:1fr}}
+
+/* principles */
+.principles{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}
+.pr{padding:34px 32px 34px 0;border-bottom:1px solid var(--line)}
+.pr:nth-child(odd){border-right:1px solid var(--line)}
+.pr:nth-child(even){padding-left:32px;padding-right:0}
+.pr q{display:block;quotes:none;font-family:var(--display);font-weight:650;font-size:clamp(1.35rem,2.3vw,1.8rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:12px;text-wrap:balance}
+.pr p{margin:0;color:var(--muted);max-width:32em}
+@media (max-width:720px){.principles{grid-template-columns:1fr}.pr,.pr:nth-child(even){padding:26px 0;border-right:0}}
+
+/* contact */
+.contact{margin-top:100px;background:var(--ink);color:var(--paper)}
+.contact .wrap{padding-block:90px 72px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
+.contact h2{font-family:var(--display);font-weight:780;font-size:clamp(2.6rem,6.4vw,5.4rem);line-height:.9;letter-spacing:-.045em;margin:14px 0 0}
+.contact h2 em{font-style:italic;font-weight:300;color:#8EA6F0}
+.contact .label{color:#9A9FA3}
+.contact .links{border-top:1px solid #2A2E33}
+.contact .links a{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid #2A2E33;text-decoration:none;font-family:var(--mono);font-size:.84rem;letter-spacing:.08em;text-transform:uppercase;transition:color .2s,padding .2s}
+.contact .links a:hover{color:#8EA6F0;padding-left:8px}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-block:22px;border-top:1px solid #2A2E33;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#9A9FA3}
+@media (max-width:820px){.contact .wrap{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.board{transform:none}}
+</style>
+</head>
+<body>
+
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="#top"><i>CR</i>Chaya Reichman</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#index">Index</a></li>
+      <li><a href="#system">Agent system</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <span class="label hello"><b></b>AI Full Stack Engineer · Jerusalem</span>
+      <h1><span>Chaya</span><span>Reichman</span></h1>
+      <p class="role">I find technology solutions to real problems.</p>
+      <p class="lede">AI products and agent systems, from understanding the need to production.</p>
+      <div class="cta">
+        <a class="btn solid" href="#contact">Let's build together</a>
+        <a class="btn" href="#work">See the work</a>
+      </div>
+    </div>
+
+    <section class="board" aria-label="Live schedule of my automations">
+      <div class="board-head">
+        <h2>Running today</h2>
+        <div class="clock"><span id="clock">--:--</span><small>Israel time</small></div>
+      </div>
+      <table>
+        <thead><tr><th>Time</th><th>Automation</th><th class="d">Days</th><th>Status</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="board-foot"><span>Scheduled · no one at the keyboard</span><span id="today"></span></div>
+    </section>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
+
+  <div class="wrap stats">
+    <div class="stat"><b data-to="40">40</b><span>builds in use</span></div>
+    <div class="stat"><b data-to="5">5</b><span>apps</span></div>
+    <div class="stat"><b data-to="15">15</b><span>skills</span></div>
+    <div class="stat"><b data-to="7">7</b><span>scheduled automations</span></div>
+    <div class="stat"><b data-to="611">611</b><span>tests on every BeforeYouGo change</span></div>
+  </div>
+
+  <div class="wrap sec-head" id="work">
+    <span class="label">Featured work · 01 to 03</span>
+    <h2>Selected <em>work.</em></h2>
+  </div>
+
+  <!-- 01 BeforeYouGo -->
+  <section class="band pine">
+    <div class="wrap">
+      <div class="proj-top">
+        <div><span class="label">01 · Production app · the flagship</span><h3>BeforeYouGo</h3></div>
+        <a class="open" href="https://8mt068hzw3.execute-api.eu-central-1.amazonaws.com/" target="_blank" rel="noopener">Open BeforeYouGo <span>↗</span></a>
+      </div>
+      <figure class="frame" style="max-width:820px;margin-inline:auto">
+        <div class="bar"><i></i><i></i><i></i><span>BeforeYouGo · product film</span></div>
+        <video src="assets/byg-promo.mp4" poster="assets/byg-hero.jpg" autoplay muted loop playsinline controls preload="metadata"></video>
+      </figure>
+      <div class="proj-grid">
+        <div>
+          <p>A system that makes Israeli bureaucratic processes accessible to residents who are not citizens. It reads the user's real documents and shows what's in order, what's missing and what to handle first, starting with the driving licence.</p>
+          <p>The real process is mapped end to end, down to the source clause behind every requirement. The rules engine makes every decision. The LLM reads documents and phrases the answer inside those rules.</p>
+          <ul class="facts">
+            <li>Serverless on AWS, infrastructure cost cut by more than 97%</li>
+            <li>611 automated tests on every change, then it deploys on its own</li>
+            <li>Every model answer is checked on the server and guarded against prompt injection</li>
+            <li>Full Hebrew and English</li>
+          </ul>
+          <div class="titleblock">
+            <div><span class="label">Status</span><b class="live">Live</b></div>
+            <div><span class="label">Stack</span><b>TS · React · Node</b></div>
+            <div><span class="label">Cloud</span><b>AWS · Supabase</b></div>
+            <div><span class="label">Decisions</span><b>232 logged</b></div>
+          </div>
+        </div>
+        <figure class="drawing">
+          <span class="corner tl">Request flow</span>
+          <span class="corner tr">Section</span>
+          <svg viewBox="0 0 560 430" role="img" aria-labelledby="h-t">
+            <title id="h-t">Documents are read by the LLM, the rules engine decides against requirements mapped to source clauses, the server checks every answer, and a readiness report comes out.</title>
+            <g class="grid"><path d="M0 40H560M0 120H560M0 200H560M0 280H560M0 360H560M40 0V430M140 0V430M240 0V430M340 0V430M440 0V430M540 0V430"/></g>
+            <path id="p1" class="w" d="M95 106 V180"/><path id="p2" class="w" d="M170 208 H210"/><path id="p3" class="w-hi" d="M415 106 V180"/>
+            <path id="p4" class="w" d="M375 236 V255 H465 V280"/><path id="p5" class="w-hi" d="M465 336 V360 H375 V372"/>
+            <rect class="n-sky" x="20" y="50" width="150" height="56"/><text class="t c-sky" x="32" y="73">01 DOCUMENTS</text><text class="t-s" x="32" y="91">uploaded by the user</text>
+            <rect class="n" x="20" y="180" width="150" height="56"/><text class="t" x="32" y="203">02 LLM READS</text><text class="t-s" x="32" y="221">extracts the fields</text>
+            <rect class="n-warm" x="290" y="50" width="250" height="56"/><text class="t c-warm" x="302" y="73">REQUIREMENTS</text><text class="t-s" x="302" y="91">each one traced to its source clause</text>
+            <rect class="n-hi" x="210" y="180" width="330" height="56"/><text class="t c-hi" x="224" y="203">03 RULES ENGINE DECIDES</text><text class="t-s" x="224" y="221">deterministic: same input, same answer</text>
+            <rect class="n-red" x="390" y="280" width="150" height="56"/><text class="t c-red" x="402" y="303">04 SERVER CHECK</text><text class="t-s" x="402" y="321">prompt injection guard</text>
+            <rect class="n" x="210" y="372" width="330" height="44"/><text class="t" x="224" y="399">05 READINESS REPORT · before you go</text>
+            <path class="w" d="M20 290 H170 M20 285 V295 M170 285 V295"/>
+            <text class="t-s" x="30" y="312">AWS LAMBDA · SERVERLESS</text><text class="t-s" x="30" y="326">SUPABASE · DATA + LOGIN</text>
+            <circle class="dot" r="3"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle>
+            <circle class="dot" r="3"><animateMotion dur="1.2s" begin=".6s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion></circle>
+            <circle class="dot-w" r="3"><animateMotion dur="2.4s" begin=".3s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion></circle>
+            <circle class="dot" r="3"><animateMotion dur="2.6s" begin="1s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion></circle>
+            <circle class="dot-r" r="3"><animateMotion dur="2.2s" begin="1.4s" repeatCount="indefinite"><mpath href="#p5"/></animateMotion></circle>
+          </svg>
+        </figure>
+      </div>
+      <div class="shots">
+        <figure><div class="frame"><div class="bar"><i></i><i></i><i></i><span>Welcome</span></div><img src="assets/byg-hero.jpg" alt="BeforeYouGo welcome screen" loading="lazy"></div><figcaption class="cap">Welcome</figcaption></figure>
+        <figure><div class="frame"><div class="bar"><i></i><i></i><i></i><span>Diagnosis</span></div><img src="assets/byg-diagnosis.jpg" alt="Diagnosis screen with route, category and clause" loading="lazy"></div><figcaption class="cap">Diagnosis, with the clause it came from</figcaption></figure>
+        <figure><div class="frame"><div class="bar"><i></i><i></i><i></i><span>Your road</span></div><img src="assets/byg-road.jpg" alt="The road screen with steps, deadlines and document status" loading="lazy"></div><figcaption class="cap">The whole road, in order</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 Scholar -->
+  <section class="band cream">
+    <div class="wrap">
+      <div class="proj-top">
+        <div><span class="label">02 · Web app</span><h3 style="color:#2A1A14">Scholar<span style="color:var(--vermilion)">.</span></h3></div>
+        <a class="open" href="https://scholar-five-sage.vercel.app" target="_blank" rel="noopener">Open Scholar <span>↗</span></a>
+      </div>
+      <div class="proj-grid" style="grid-template-columns:1.35fr 1fr;margin-top:24px">
+        <figure class="frame light-frame" style="margin:0">
+          <div class="bar"><i></i><i></i><i></i><span>scholar-five-sage.vercel.app</span></div>
+          <img src="assets/scholar-tasks.jpg" alt="Scholar today page with routine and tasks" loading="lazy">
+        </figure>
+        <div>
+          <p>A personal study ledger. Today's tasks, a weekly view, daily routines, a course tracker and a journal, run from the keyboard.</p>
+          <ul class="facts">
+            <li>Drag-and-drop task management with keyboard shortcuts</li>
+            <li>Streaks and study minutes tracked per day</li>
+            <li>Hebrew calendar dates next to the regular date</li>
+            <li>Installable as an app, with its own backup</li>
+          </ul>
+          <div class="titleblock">
+            <div><span class="label">Status</span><b class="live">Live</b></div>
+            <div><span class="label">Stack</span><b>React · Vite · TS</b></div>
+            <div><span class="label">Install</span><b>PWA</b></div>
+            <div><span class="label">Deploy</span><b>On push</b></div>
+          </div>
+          <figure style="margin:28px 0 0"><div class="frame light-frame"><div class="bar"><i></i><i></i><i></i><span>Today</span></div><img src="assets/scholar.jpg" alt="Scholar empty today page with date heading" loading="lazy"></div><figcaption class="cap">A clean page, first thing in the morning</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Almanac -->
+  <section class="band stone">
+    <div class="wrap">
+      <div class="proj-top">
+        <div><span class="label">03 · Local-first web app</span><h3 style="color:#3A1E1A">Almanac</h3></div>
+        <span class="label">Your data stays on your device</span>
+      </div>
+      <figure class="frame light-frame" style="margin-top:8px">
+        <div class="bar"><i></i><i></i><i></i><span>Almanac · Today</span></div>
+        <img src="assets/almanac.jpg" alt="Almanac today page with sleep, meals, water, sport and mood" loading="lazy" style="aspect-ratio:16/8.4">
+      </figure>
+      <div class="proj-grid">
+        <div>
+          <p>A personal health almanac. Seven daily sections (sleep, meals, water, sport, mood, weight and a journal) in one calm page, with trends and history over time.</p>
+          <p>Local-first by design: everything is stored in the browser, nothing goes to a server.</p>
+        </div>
+        <div>
+          <ul class="facts" style="margin-top:0">
+            <li>Seven-step onboarding sets goals for sleep, water and activity</li>
+            <li>Stored in the browser's own database, works offline</li>
+            <li>Automatic backup to a folder you choose</li>
+          </ul>
+          <div class="titleblock">
+            <div><span class="label">Status</span><b class="live">Built</b></div>
+            <div><span class="label">Stack</span><b>React · Vite · TS</b></div>
+            <div><span class="label">Storage</span><b>IndexedDB</b></div>
+            <div><span class="label">Server</span><b>None</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Index -->
+  <section class="wrap" id="index">
+    <div class="sec-head">
+      <span class="label">The full index</span>
+      <h2>Everything I've <em>built.</em></h2>
+    </div>
+    <div class="filters" role="group" aria-label="Filter by kind" id="filters"></div>
+    <div class="index" id="grid"></div>
+    <p class="index-note">Every piece is plain files: apps have their own repos, everything else lives in one system with its status and history written down.</p>
+  </section>
+
+  <!-- Agent system -->
+  <section class="band night" id="system" style="margin-top:100px">
+    <div class="wrap">
+      <div class="proj-top">
+        <div><span class="label">How it fits together</span><h3>The agent system</h3></div>
+        <span class="label">Runs daily</span>
+      </div>
+      <div class="proj-grid" style="margin-top:24px">
+        <div>
+          <p style="color:#C3CDC9">The skills, agents and automations in the index form one system that runs my working day. Briefings, posts and weekly reviews run on a schedule, all reading from one shared memory: a knowledge base of every project, decision and lesson, connected.</p>
+          <p style="color:#C3CDC9">It learns from mistakes. When something breaks, the cause and the fix are logged so it never retries a known wrong approach. It's plain files on purpose, so it can move to any agent tool.</p>
+          <ul class="facts">
+            <li>7 scheduled automations, 15 skills, 3 agents, 2 hooks</li>
+            <li>402 connected pages of memory, loaded before every session</li>
+            <li>A hook stops any message holding a key or token before it's sent</li>
+          </ul>
+        </div>
+        <figure class="drawing">
+          <span class="corner tl">Plan</span><span class="corner tr">Hub and spokes</span>
+          <svg viewBox="0 0 560 370" role="img" aria-labelledby="a2-t">
+            <title id="a2-t">Eight parts of the system around one shared memory.</title>
+            <g class="w"><path d="M280 185 L475 185"/><path d="M280 185 L420 270"/><path id="a2s" d="M280 185 L280 310"/><path d="M280 185 L140 270"/><path d="M280 185 L85 185"/><path id="a2w" d="M280 185 L140 100"/><path d="M280 185 L280 60"/><path id="a2e" d="M280 185 L420 100"/></g>
+            <circle class="n-hi" cx="280" cy="185" r="58"/>
+            <text class="t c-hi" x="280" y="182" text-anchor="middle">MEMORY</text><text class="t-s" x="280" y="198" text-anchor="middle">402 pages</text>
+            <rect class="n-warm" x="420" y="170" width="120" height="30"/><text class="t-s c-warm" x="480" y="189" text-anchor="middle">MORNING BRIEF</text>
+            <rect class="n-sky" x="362" y="256" width="120" height="30"/><text class="t-s c-sky" x="422" y="275" text-anchor="middle">APPLY</text>
+            <rect class="n" x="220" y="296" width="120" height="30"/><text class="t-s" x="280" y="315" text-anchor="middle">WEEKLY REVIEW</text>
+            <rect class="n-plum" x="80" y="256" width="120" height="30"/><text class="t-s c-plum" x="140" y="275" text-anchor="middle">POSTS</text>
+            <rect class="n" x="20" y="170" width="120" height="30"/><text class="t-s" x="80" y="189" text-anchor="middle">VAULT KEEPER</text>
+            <rect class="n-hi" x="80" y="85" width="120" height="30"/><text class="t-s c-hi" x="140" y="104" text-anchor="middle">WHATSAPP BRIEF</text>
+            <rect class="n-red" x="220" y="45" width="120" height="30"/><text class="t-s c-red" x="280" y="64" text-anchor="middle">/BUILD</text>
+            <rect class="n" x="362" y="85" width="120" height="30"/><text class="t-s" x="422" y="104" text-anchor="middle">UPGRADES</text>
+            <circle class="dot-w" r="3"><animateMotion dur="2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#a2e"/></animateMotion></circle>
+            <circle class="dot" r="3"><animateMotion dur="2.4s" begin=".7s" repeatCount="indefinite"><mpath href="#a2s"/></animateMotion></circle>
+            <circle class="dot-r" r="3"><animateMotion dur="2.2s" begin="1.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#a2w"/></animateMotion></circle>
+            <text class="t-s" x="20" y="358">RUNS ON A SCHEDULE · PLAIN FILES · PORTABLE</text>
+          </svg>
+        </figure>
+      </div>
+      <div class="duo">
+        <div>
+          <span class="label">Agent pair</span>
+          <h4>Upgrade agents</h4>
+          <p>A scout reads what changed in the field and proposes upgrades twice a week. Nothing gets built until I approve. Then a builder makes the change, tests it, and ships it, with a note on how to use it and how to undo it.</p>
+          <figure class="drawing" style="margin-top:20px">
+            <svg viewBox="0 0 560 200" role="img" aria-labelledby="a3-t">
+              <title id="a3-t">Scout proposes, a human approves, builder builds, tests and ships.</title>
+              <path id="a3p" class="w" d="M70 100 H520"/>
+              <rect class="n-sky" x="20" y="70" width="100" height="60"/><text class="t c-sky" x="34" y="96">SCOUT</text><text class="t-s" x="34" y="114">proposes</text>
+              <path class="n-warm" d="M200 70 L236 100 L200 130 L164 100 Z"/><text class="t c-warm" x="200" y="104" text-anchor="middle">YES?</text>
+              <text class="t-s" x="200" y="156" text-anchor="middle">human gate</text>
+              <rect class="n-hi" x="270" y="70" width="100" height="60"/><text class="t c-hi" x="284" y="96">BUILDER</text><text class="t-s" x="284" y="114">makes it</text>
+              <rect class="n" x="400" y="70" width="64" height="60"/><text class="t" x="412" y="104">TEST</text>
+              <rect class="n-red" x="480" y="70" width="64" height="60"/><text class="t c-red" x="492" y="104">SHIP</text>
+              <circle class="dot-w" r="3.2"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#a3p"/></animateMotion></circle>
+            </svg>
+          </figure>
+        </div>
+        <div>
+          <span class="label">Agent</span>
+          <h4>Proof of work</h4>
+          <p>An agent whose only job is to check my own claims. When I say I finished something, it looks for real evidence in the files before it counts.</p>
+          <span class="label" style="display:block;margin-top:28px">Local app</span>
+          <h4>Homebase</h4>
+          <p>A dashboard that opens at login: the day, tasks, a focus timer, project progress, read live from the knowledge base. The checker agent failed its first review on XSS, CSRF and host checks. All three were fixed and the second run passed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="process">
+    <div class="sec-head">
+      <span class="label">The process · Every build</span>
+      <h2>Plan, build, review, <em>ship.</em></h2>
+    </div>
+    <div class="process">
+      <div class="step"><div class="num">01</div><h4>Plan</h4><p>The problem, the costly mistake, and a definition of done that can be proven. Nothing starts without it.</p></div>
+      <div class="step"><div class="num">02</div><h4>Build</h4><p>Run, test, fix, in a loop until the definition of done is met with real evidence. It stops after six failed tries.</p></div>
+      <div class="step"><div class="num">03</div><h4>Review</h4><p>A separate checker agent, never the one that built it, proves every item and runs quality and security checks.</p></div>
+      <div class="step"><div class="num">04</div><h4>Ship</h4><p>It runs once for real where it lives. Then a secret check, a commit, and the decisions and lessons are saved.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="principles">
+    <div class="sec-head">
+      <span class="label">Principles</span>
+      <h2>How I <em>work.</em></h2>
+    </div>
+    <div class="principles">
+      <div class="pr"><q>Rules decide. The model phrases.</q><p>Where a wrong answer costs someone, a deterministic engine makes the call and the LLM works inside it.</p></div>
+      <div class="pr"><q>Every decision is written down with its reason.</q><p>232 numbered decisions on BeforeYouGo alone. Nothing gets argued twice.</p></div>
+      <div class="pr"><q>It gets better because I train it.</q><p>Every correction becomes a standing rule. Every failure goes to an error log with its fix.</p></div>
+      <div class="pr"><q>No lock-in.</q><p>The system is plain files with a translation layer, so it runs on whichever agent tool fits.</p></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <span class="label">Contact</span>
+        <h2>Let's build something <em>great together.</em></h2>
+      </div>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/chaya-reichman" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+        <a href="https://github.com/chaya2025" target="_blank" rel="noopener">GitHub <span>↗</span></a>
+        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=cr0504122064@gmail.com" target="_blank" rel="noopener">Gmail <span>↗</span></a>
+      </div>
+    </div>
+    <div class="wrap foot"><span>Chaya Reichman · AI Full Stack Engineer</span><span>40 pieces · rev. 2026-11</span></div>
+  </section>
+</main>
+
+<script>
+(function(){
+  // ---- Index data: everything she built (from LIBRARY.md, 2026-11-23) ----
+  var items=[
+    ["app","BeforeYouGo","Makes Israeli bureaucratic processes accessible to residents who are not citizens. Live on AWS."],
+    ["app","Scholar","Study ledger: tasks, routines, course tracker and journal. Live, installable."],
+    ["app","Almanac","Local-first health almanac with seven daily sections and trends."],
+    ["app","Homebase","Dashboard that opens at login, reads and writes the knowledge base live."],
+    ["app","The Sibling Tour","A live shared race between siblings, with a shared database behind it."],
+    ["skill","build","The workflow for anything new: plan, build, review, ship, with stops in between."],
+    ["skill","build-plan","Turns an idea into one approved plan with a provable definition of done."],
+    ["skill","build-run","Builds toward the plan in a run, test, fix loop until it's proven."],
+    ["skill","build-review","A separate checker proves the result, runs security checks, then quizzes me."],
+    ["skill","build-ship","Puts it where it lives, runs it once for real, secret-checks the commit."],
+    ["skill","apply","Say 'I'm applying to X': a full kit with fit score, form answers and cover letter, every claim checked."],
+    ["skill","interview-prep","One-click prep page for an interview, plus practice with an agent as the interviewer."],
+    ["skill","career-copy","Checks every career draft against my own writing rules before I see it."],
+    ["skill","vault-keeper","Saves anything worth remembering to the knowledge base and checks its health every session."],
+    ["skill","study-pack","Turns a topic or a build into an audio-ready study pack and a clickable explainer."],
+    ["skill","time-tracker","Honest ledger of hours worked against what was planned."],
+    ["skill","consolidator","Finds scattered work across the machine and brings it into one place."],
+    ["skill","tispace-roadmap","A 125-topic study roadmap: next topic every morning, three check questions after each."],
+    ["skill","grill-me","Hard, specific questions before I commit to a decision."],
+    ["skill","routing-table","Map of what each automation does and what feeds into what."],
+    ["agent","upgrade-scout","Reads what changed in the field and proposes up to three upgrades."],
+    ["agent","upgrade-builder","Builds an approved upgrade alone, tests it, reports how to undo it."],
+    ["agent","proof-of-work","Checks my 'I finished X' against real evidence before it counts."],
+    ["automation","whatsapp-brief","Top three for today, sent as one WhatsApp message every morning."],
+    ["automation","morning-brief","Email, calendar and what's on deck in a three-minute brief."],
+    ["automation","week-ahead","Sunday preview of the week, plus new jobs that match my target role."],
+    ["automation","weekly-upgrades","Runs the scout twice a week and hands approved ideas to the builder."],
+    ["automation","weekly-review","Friday email: what I studied, built and won this week."],
+    ["automation","posts","A LinkedIn post in my own style with an image, every Tuesday."],
+    ["automation","daily-backup","Commits and pushes the whole system to a private repo every morning."],
+    ["hook","session-start","Loads memory, today's priorities and missed runs before every session."],
+    ["hook","paste-guard","Stops any message holding an API key or token before it's sent."],
+    ["script","housecheck.py","Scans the knowledge base for empty, orphan and junk pages."],
+    ["script","stack_words.py","Rebuilds my glossary page of every tech term I've learned."],
+    ["script","check_copy.py","Lints a career draft against my rules and lists every number to source."],
+    ["script","timelog.py","Reads and writes the time log, autofills session time."],
+    ["script","roadmap.py","Rebuilds the study roadmap page and marks topics done."],
+    ["script","pack.py","Bundles study sources and skips anything private or secret."],
+    ["script","consolidate.py","Helper that finds and moves scattered project folders."],
+    ["script","send-whatsapp.ps1","Sends the morning WhatsApp message."]
+  ];
+  var kinds=[["all","All"],["app","Apps"],["skill","Skills"],["agent","Agents"],["automation","Automations"],["hook","Hooks"],["script","Scripts"]];
+  var grid=document.getElementById('grid'), filters=document.getElementById('filters');
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function render(k){
+    var html='',n=0;
+    items.forEach(function(it,i){ if(k!=='all'&&it[0]!==k) return;
+      html+='<article class="item" data-k="'+it[0]+'" style="animation-delay:'+(n++*25)+'ms"><div class="kind">'+it[0]+'<i>'+String(i+1).padStart(2,'0')+'</i></div><h4>'+esc(it[1])+'</h4><p>'+esc(it[2])+'</p></article>';
+    });
+    grid.innerHTML=html;
+  }
+  kinds.forEach(function(k){
+    var c=k[0]==='all'?items.length:items.filter(function(i){return i[0]===k[0]}).length;
+    var b=document.createElement('button'); b.className='chip'; b.type='button'; b.id='f-'+k[0];
+    b.setAttribute('aria-pressed',k[0]==='all'?'true':'false'); b.innerHTML=k[1]+'<sup>'+c+'</sup>';
+    b.addEventListener('click',function(){ filters.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed','false')}); b.setAttribute('aria-pressed','true'); render(k[0]); });
+    filters.appendChild(b);
+  });
+  render('all');
+
+  // ---- Marquee ----
+  var m=document.getElementById('marquee'), names=items.map(function(i){return '<span>'+esc(i[1])+'</span>'}).join('');
+  m.innerHTML=names+names;
+
+  // ---- Departures board: real schedule, Israel time ----
+  var sched=[ // [HH:MM, name, days(0=Sun..6), label]
+    ["07:30","WhatsApp brief",[0,1,2,3,4,5],"Sun to Fri"],
+    ["08:00","Daily backup",[0,1,2,3,4,5],"Sun to Fri"],
+    ["08:00","Week ahead",[0],"Sun"],
+    ["08:30","Morning brief",[0,1,2,3,4,5],"Sun to Fri"],
+    ["09:00","Weekly upgrades",[0,3],"Sun, Wed"],
+    ["10:00","Weekly review",[5],"Fri"],
+    ["12:00","Posts",[2],"Tue"]
+  ];
+  var rows=document.getElementById('rows'), clock=document.getElementById('clock'), today=document.getElementById('today');
+  var dayNames=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function nowIL(){
+    try{
+      var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Jerusalem',hour:'2-digit',minute:'2-digit',weekday:'short',hour12:false}).formatToParts(new Date());
+      var o={}; p.forEach(function(x){o[x.type]=x.value});
+      var wd=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(o.weekday);
+      return {h:+o.hour%24,m:+o.minute,d:wd<0?new Date().getDay():wd};
+    }catch(e){var d=new Date();return {h:d.getHours(),m:d.getMinutes(),d:d.getDay()}}
+  }
+  function tick(){
+    var n=nowIL(), mins=n.h*60+n.m, nextSet=false, html='';
+    clock.textContent=String(n.h).padStart(2,'0')+':'+String(n.m).padStart(2,'0');
+    today.textContent=dayNames[n.d];
+    sched.forEach(function(s){
+      var t=s[0].split(':'), at=+t[0]*60+ +t[1], runs=s[2].indexOf(n.d)>-1, st;
+      if(!runs) st='<span class="st">Not today</span>';
+      else if(at<=mins) st='<span class="st done">Done</span>';
+      else if(!nextSet){ st='<span class="st next">Next</span>'; nextSet=true; }
+      else st='<span class="st">On time</span>';
+      html+='<tr><td class="t">'+s[0]+'</td><td class="n">'+s[1]+'</td><td class="d">'+s[3]+'</td><td>'+st+'</td></tr>';
+    });
+    rows.innerHTML=html;
+  }
+  tick(); setInterval(tick,30000);
+
+  // ---- Motion preferences ----
+  try{
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('svg').forEach(function(s){ if(s.pauseAnimations) s.pauseAnimations(); });
+      document.querySelectorAll('video').forEach(function(v){ v.removeAttribute('autoplay'); v.pause(); });
+    } else {
+      // count-up on the stats strip (final values are already in the HTML)
+      var els=document.querySelectorAll('.stat b[data-to]');
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting) return; io.unobserve(e.target);
+        var el=e.target,to=+el.dataset.to,t0=performance.now();
+        (function step(t){ var k=Math.min(1,(t-t0)/900); el.textContent=Math.round(to*(1-Math.pow(1-k,3))); if(k<1) requestAnimationFrame(step); })(t0);
+      }); },{threshold:.6});
+      els.forEach(function(el){ io.observe(el); });
+    }
+  }catch(e){}
+})();
+</script>
+
+</body>
+</html>
